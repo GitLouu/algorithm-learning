@@ -13,6 +13,9 @@
  * 两个有序单链表的合并
  * {@link com.gitee.fsmxm.thinking.in.algorithm.linkedlist.OrderedSinglyLinkedListMerge}
  * <br/>
+ * 删除单链表的倒数第k个节点
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.linkedlist.SinglyLinkedListDeleteLastKthNode}
+ * <br/>
  *
  */
 package com.gitee.fsmxm.thinking.in.algorithm.linkedlist;

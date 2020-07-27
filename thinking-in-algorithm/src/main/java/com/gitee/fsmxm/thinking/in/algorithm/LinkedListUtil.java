@@ -18,6 +18,20 @@ public class LinkedListUtil {
         return head;
     }
 
+    public static <T> SNode<T> createSinglyLinkedList(T[] ts) {
+        if (ts == null || ts.length == 0) {
+            return null;
+        }
+
+        SNode<T> head = new SNode<T>(ts[0]);
+        SNode<T> p = head;
+        for (int i = 1; i < ts.length; i++) {
+            p.next = new SNode<T>(ts[i]);
+            p = p.next;
+        }
+        return head;
+    }
+
     public static <T> String toString(SNode<T> head) {
         if (head == null) {
             return null;

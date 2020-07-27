@@ -22,8 +22,26 @@ public class SinglyLinkedListFindMiddleNode {
             sl = sl.next;
         }
 
+        // 奇偶中点问题
         if (fa.next != null) {
             return sl.next;
+        }
+
+        return sl;
+    }
+
+    // 循环条件的变化，不需要考虑奇偶中点，慢指针会落到后中点
+    public static <T> SNode<T> findMiddleNode2(SNode<T> head) {
+        if (head == null) {
+            return null;
+        }
+
+        SNode<T> sl = head;
+        SNode<T> fa = head;
+
+        while (fa != null && fa.next != null) {
+            fa = fa.next.next;
+            sl = sl.next;
         }
 
         return sl;
