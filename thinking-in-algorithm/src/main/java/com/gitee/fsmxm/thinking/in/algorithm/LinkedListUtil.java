@@ -1,8 +1,8 @@
 package com.gitee.fsmxm.thinking.in.algorithm;
 
-public class NodeUtil {
+public class LinkedListUtil {
 
-    public static SNode<Character> createStringNodes(String str) {
+    public static SNode<Character> createSinglyLinkedList(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -34,7 +34,7 @@ public class NodeUtil {
     }
 
     public static void main(String[] args) {
-        SNode<Character> head = createStringNodes("abccba");
+        SNode<Character> head = createSinglyLinkedList("abccba");
         System.out.println(toString(head));
     }
 

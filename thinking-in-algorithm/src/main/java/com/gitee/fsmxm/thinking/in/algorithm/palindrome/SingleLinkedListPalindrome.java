@@ -1,6 +1,6 @@
 package com.gitee.fsmxm.thinking.in.algorithm.palindrome;
 
-import com.gitee.fsmxm.thinking.in.algorithm.NodeUtil;
+import com.gitee.fsmxm.thinking.in.algorithm.LinkedListUtil;
 import com.gitee.fsmxm.thinking.in.algorithm.SNode;
 
 /**
@@ -8,7 +8,7 @@ import com.gitee.fsmxm.thinking.in.algorithm.SNode;
  */
 public class SingleLinkedListPalindrome {
 
-    static <T> boolean isPalindrome(SNode<T> head) {
+    public static <T> boolean isPalindrome(SNode<T> head) {
 
         return slowFastPointer(head);
     }
@@ -19,7 +19,7 @@ public class SingleLinkedListPalindrome {
     // 3. 反转后半段链表，用后半段链表来与原链表头部开始比较直到后半段链表结束，有不相等则返回false
     // 4. 最后返回true
     // 时间复杂度O(n) 空间复杂度O(n)（新开辟节点）/O(1)（不开辟节点，最后要再反转链表）
-    static <T> boolean slowFastPointer(SNode<T> head) {
+    public static <T> boolean slowFastPointer(SNode<T> head) {
         SNode<T> sl = head;
         SNode<T> fa = head;
         while (fa != null) {
@@ -50,12 +50,12 @@ public class SingleLinkedListPalindrome {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("abccba")));
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("abccbaa")));
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("abc")));
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("aa")));
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("a")));
-        System.out.println(isPalindrome(NodeUtil.createStringNodes("")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("abccba")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("abccbaa")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("abc")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("aa")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("a")));
+        System.out.println(isPalindrome(LinkedListUtil.createSinglyLinkedList("")));
     }
 
 }
