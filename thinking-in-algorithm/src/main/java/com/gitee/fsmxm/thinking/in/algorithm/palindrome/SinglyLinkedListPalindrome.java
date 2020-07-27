@@ -6,7 +6,7 @@ import com.gitee.fsmxm.thinking.in.algorithm.SNode;
 /**
  * 单链表存储的回文判断
  */
-public class SingleLinkedListPalindrome {
+public class SinglyLinkedListPalindrome {
 
     public static <T> boolean isPalindrome(SNode<T> head) {
 
