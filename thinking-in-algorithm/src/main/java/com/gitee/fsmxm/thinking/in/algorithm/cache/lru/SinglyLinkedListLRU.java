@@ -24,21 +24,21 @@ public class SinglyLinkedListLRU<T> {
         this.capacity = capacity;
     }
 
-    public void add(T data) {
+    public void add(T val) {
         // 初始数据插入
         if (head == null) {
-            head = new SNode<T>(data);
+            head = new SNode<T>(val);
             size++;
         } else {
             // 如果头节点和data相同，则返回
-            if (head.data.equals(data)) {
+            if (head.val.equals(val)) {
                 return;
             }
             // 判断数据是否已经缓存，已经缓存则删除原位置数据，并将其插入头部
             SNode<T> cur = head;
             SNode<T> target;
             while (cur.next != null) {
-                if (cur.next.data.equals(data)) {
+                if (cur.next.val.equals(val)) {
                     target = cur.next;
                     cur.next = cur.next.next;
                     target.next = head;
@@ -48,7 +48,7 @@ public class SinglyLinkedListLRU<T> {
                 cur = cur.next;
             }
             // 如果没有缓存过，则判断是否容量已满，已满则删除尾节点并将数据插入头部；未满则将数据插入头部
-            SNode<T> newNode = new SNode<T>(data);
+            SNode<T> newNode = new SNode<T>(val);
             newNode.next = head;
             if (size < capacity) {
                 head = newNode;
@@ -72,17 +72,17 @@ public class SinglyLinkedListLRU<T> {
             return null;
         }
         SNode<T> p = head;
-        StringBuilder builder = new StringBuilder().append(size).append(": ").append(p.data.toString()).append(", ");
+        StringBuilder builder = new StringBuilder().append(size).append(": ").append(p.val.toString()).append(", ");
         while (p.next != null) {
-            builder.append(p.next.data.toString()).append(", ");
+            builder.append(p.next.val.toString()).append(", ");
             p = p.next;
         }
         return builder.deleteCharAt(builder.length() - 2).toString();
     }
 
-    static <T> void add(SinglyLinkedListLRU<T> lru, T data) {
-        lru.add(data);
-        System.out.println("add " + data + ", " + lru.toString());
+    static <T> void add(SinglyLinkedListLRU<T> lru, T val) {
+        lru.add(val);
+        System.out.println("add " + val + ", " + lru.toString());
     }
 
     public static void main(String[] args) {

@@ -5,9 +5,9 @@ package com.gitee.fsmxm.thinking.in.algorithm;
  * @param <T>
  */
 public class SNode<T> {
-    public T data;
+    public T val;
     public SNode<T> next;
-    public SNode(T data) {
-        this.data = data;
+    public SNode(T val) {
+        this.val = val;
     }
 }

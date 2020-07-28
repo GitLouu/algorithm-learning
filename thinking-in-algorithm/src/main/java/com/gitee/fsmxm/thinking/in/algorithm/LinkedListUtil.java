@@ -41,7 +41,7 @@ public class LinkedListUtil {
         int count = 0;
         while (p != null) {
             count++;
-            builder.append(p.data.toString()).append(", ");
+            builder.append(p.val.toString()).append(", ");
             p = p.next;
         }
         return count + ": " + builder.deleteCharAt(builder.length() - 2).toString();

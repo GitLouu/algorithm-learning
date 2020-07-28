@@ -28,7 +28,7 @@ public class OrderedSinglyLinkedListMerge {
         SNode<T> nHead = new SNode<T>(null);
         SNode<T> np = nHead;
         while (p1 != null && p2 != null) {
-            if (p1.data.compareTo(p2.data) <= 0) {
+            if (p1.val.compareTo(p2.val) <= 0) {
                 np.next = p1;
                 np = np.next;
                 p1 = p1.next;
@@ -63,7 +63,7 @@ public class OrderedSinglyLinkedListMerge {
         SNode<T> nHead = null;
         SNode<T> np = null;
         while (p1 != null && p2 != null) {
-            if (p1.data.compareTo(p2.data) <= 0) {
+            if (p1.val.compareTo(p2.val) <= 0) {
                 if (nHead == null) {
                     nHead = p1;
                     np = nHead;

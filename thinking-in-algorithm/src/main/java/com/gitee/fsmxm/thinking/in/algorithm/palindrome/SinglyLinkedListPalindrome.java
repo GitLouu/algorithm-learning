@@ -32,7 +32,7 @@ public class SinglyLinkedListPalindrome {
 
         SNode<T> nHead = null;
         while (sl != null) {
-            SNode<T> temp = new SNode<T>(sl.data);
+            SNode<T> temp = new SNode<T>(sl.val);
             temp.next = nHead;
             nHead = temp;
             sl = sl.next;
@@ -40,7 +40,7 @@ public class SinglyLinkedListPalindrome {
 
         SNode<T> oHead = head;
         while (nHead != null) {
-            if (!nHead.data.equals(oHead.data)) {
+            if (!nHead.val.equals(oHead.val)) {
                 return false;
             }
             nHead = nHead.next;
