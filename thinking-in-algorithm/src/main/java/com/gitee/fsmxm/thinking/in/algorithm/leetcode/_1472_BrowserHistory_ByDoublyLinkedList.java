@@ -44,7 +44,7 @@ public class _1472_BrowserHistory_ByDoublyLinkedList {
             return cur.val;
         }
 
-        class Node {
+        static class Node {
             String val;
             Node prev;
             Node next;

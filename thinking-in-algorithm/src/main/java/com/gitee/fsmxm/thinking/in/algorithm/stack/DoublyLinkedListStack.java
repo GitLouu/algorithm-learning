@@ -1,23 +1,35 @@
 package com.gitee.fsmxm.thinking.in.algorithm.stack;
 
+import com.gitee.fsmxm.thinking.in.algorithm.DNode;
+
 /**
- * 数组实现栈结构 (顺序栈)
+ * 双向链表实现栈  链式栈
+ * @param <T>
  */
-public class ArrayStack<T> implements IStack<T> {
+public class DoublyLinkedListStack<T> implements IStack<T> {
 
+    private final int capacity;
+    private DNode<T> top;
     private int count;
-    private final T[] data;
 
-    @SuppressWarnings("unchecked")
-    public ArrayStack (int capacity) {
-        this.data = (T[]) new Object[capacity];
+    public DoublyLinkedListStack() {
+        this(Integer.MAX_VALUE);
+    }
+
+    public DoublyLinkedListStack(int capacity) {
+        this.capacity = capacity;
+        // dummy node 哨兵
+        this.top = new DNode<T>(null);
     }
 
     public boolean add(T val) {
-        if (count >= data.length) {
+        if (count >= capacity) {
             return false;
         }
-        this.data[count] = val;
+        DNode<T> temp = new DNode<T>(val);
+        temp.prev = this.top;
+        this.top.next = temp;
+        this.top = temp;
         count++;
         return true;
     }
@@ -26,12 +38,15 @@ public class ArrayStack<T> implements IStack<T> {
         if (count < 1) {
             return null;
         }
-        return data[--count];
+        T val = this.top.val;
+        this.top = this.top.prev;
+        this.top.next = null;
+        count--;
+        return val;
     }
 
-
     public static void main(String[] args) {
-        IStack<String> stack = new ArrayStack<String>(5);
+        IStack<String> stack = new DoublyLinkedListStack<String>(5);
         stack.add("123");
         stack.add("456");
         stack.add("789");

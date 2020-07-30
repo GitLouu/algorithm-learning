@@ -18,8 +18,8 @@ public class _1472_BrowserHistory_By2Stack {
         String currPage;
 
         public BrowserHistory(String homepage) {
-            back = new BHStack();
-            forward = new BHStack();
+            back = new BHStack(5000);
+            forward = new BHStack(5000);
             currPage = homepage;
         }
 
@@ -65,44 +65,42 @@ public class _1472_BrowserHistory_By2Stack {
             return currPage;
         }
 
-        class BHStack {
-            final Node head;
-            Node tail;
+        static class BHStack {
+            private final int capacity;
+            private int size;
+            private String[] data;
 
-            public BHStack() {
-                // dummy node
-                head = new Node(null);
-                tail = head;
+            public BHStack (int capacity) {
+                this.capacity = capacity;
+                this.data = new String[capacity];
             }
 
-            public boolean add(String str) {
-                Node temp = new Node(str);
-                temp.prev = tail;
-                tail.next = temp;
-                tail = temp;
+            public boolean add(String val) {
+                if (size >= capacity) {
+                    return false;
+                }
+                this.data[size] = val;
+                size++;
                 return true;
             }
 
             public String pop() {
-                if (tail == head) {
+                if (size < 1) {
                     return null;
                 }
-                String val = tail.val;
-                tail = tail.prev;
-                tail.next = null;
-                return val;
+                return data[--size];
             }
 
             public boolean isEmpty() {
-                return tail == head;
+                return size == 0;
             }
 
             public void removeAll() {
-                while (pop() != null) {
-                }
+                this.data = new String[capacity];
+                size = 0;
             }
 
-            class Node {
+            static class Node {
                 String val;
                 Node prev;
                 Node next;
