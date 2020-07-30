@@ -5,7 +5,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
  * https://leetcode-cn.com/problems/design-browser-history/
  * 难度 中等
  */
-public class _1472_BrowserHistory_By2Stack {
+public class _1472_DesignBrowserHistory_Stack {
 
     /**
      * 双栈有点繁杂; 主要是要记录当前打开的网站

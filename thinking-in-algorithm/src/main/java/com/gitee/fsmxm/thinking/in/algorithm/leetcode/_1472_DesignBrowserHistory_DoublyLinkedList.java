@@ -5,7 +5,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
  * https://leetcode-cn.com/problems/design-browser-history/
  * 难度 中等
  */
-public class _1472_BrowserHistory_ByDoublyLinkedList {
+public class _1472_DesignBrowserHistory_DoublyLinkedList {
 
     /**
      * 双向链表代码简洁多了

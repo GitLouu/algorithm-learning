@@ -19,7 +19,7 @@ public class CircularQueue<T> implements IQueue<T> {
     }
 
     public boolean add(T val) {
-        // 判断是否已满
+        // 判断是否已满(队尾的位置是不存数据的)
         if ((tail + 1) % data.length == head) {
             return false;
         }
