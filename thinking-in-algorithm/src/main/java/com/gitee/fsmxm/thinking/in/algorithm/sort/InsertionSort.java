@@ -7,6 +7,7 @@ import java.util.Arrays;
  * 每一轮，从前到后一次选择一个数字(可以从第2个数字开始，第1个数字无法跟前面比较)，
  * 跟依次前面的比较，如果前面的数字大于该数字，则将前面的数字向后移，
  * 直到不满足条件的位置，最终将该数字插入
+ * 效果就是 把一个数字插入到前面的有序区里面去使其仍然有序
  */
 public class InsertionSort {
 
@@ -20,7 +21,7 @@ public class InsertionSort {
 
             int j = i;
             for (; j > 0 && data[j - 1] > temp; j--) {
-                data[j] = data[j - 1];
+                data[j] = data[j - 1]; // 往后移
             }
             data[j] = temp;
 
