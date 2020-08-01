@@ -14,5 +14,9 @@
  * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.SelectionSort}
  * <br/>
  *
+ * 希尔排序
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.ShellSort}
+ * <br/>
+ *
  */
 package com.gitee.fsmxm.thinking.in.algorithm.sort;

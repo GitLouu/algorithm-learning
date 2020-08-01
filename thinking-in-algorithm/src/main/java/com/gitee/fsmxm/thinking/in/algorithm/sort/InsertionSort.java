@@ -13,10 +13,9 @@ public class InsertionSort {
 
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度O(n)  最坏时间复杂度O(n^2)
-    static int[] sort(int[] data) {
+    static int[] sort1(int[] data) {
 
         for (int i = 1; i < data.length; i++) {
-
             int temp = data[i];
 
             int j = i;
@@ -30,9 +29,26 @@ public class InsertionSort {
         return data;
     }
 
+    // 另一种写法
+    static int[] sort2(int[] data) {
+
+        for (int i = 1; i < data.length; i++) {
+            int temp = data[i];
+
+            int j = i - 1;
+            for (; j >= 0 && data[j] > temp; j--) {
+                data[j + 1] = data[j]; // 往后移
+            }
+            data[j + 1] = temp;
+
+        }
+
+        return data;
+    }
+
     public static void main(String[] args) {
         int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        System.out.println(Arrays.toString(sort(a)));
+        System.out.println(Arrays.toString(sort2(a)));
     }
 
 }
