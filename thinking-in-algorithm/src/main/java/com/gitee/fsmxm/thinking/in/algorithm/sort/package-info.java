@@ -18,5 +18,9 @@
  * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.ShellSort}
  * <br/>
  *
+ * 归并排序
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.MergeSort}
+ * <br/>
+ *
  */
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
