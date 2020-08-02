@@ -7,6 +7,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
+    // 时间复杂度O(nlogn)  空间复杂度O(n)
     static void sort(int[] data) {
         if (data == null) {
             return;
