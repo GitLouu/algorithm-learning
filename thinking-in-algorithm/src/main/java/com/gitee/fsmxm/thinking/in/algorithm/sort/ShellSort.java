@@ -13,6 +13,9 @@ import java.util.Arrays;
 public class ShellSort {
 
     static void sort1(int[] data) {
+        if (data == null) {
+            return;
+        }
         // 初始间隔 按 n / 2
         for (int gap = data.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < data.length; i++) {
@@ -29,6 +32,9 @@ public class ShellSort {
     }
 
     static void sort2(int[] data) {
+        if (data == null) {
+            return;
+        }
         // 初始间隔 按 n / 2
         for (int gap = data.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < data.length; i++) {

@@ -14,6 +14,9 @@ public class InsertionSort {
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度O(n)  最坏时间复杂度O(n^2)
     static void sort1(int[] data) {
+        if (data == null) {
+            return;
+        }
         for (int i = 1; i < data.length; i++) {
             int temp = data[i];
 
@@ -28,6 +31,9 @@ public class InsertionSort {
 
     // 另一种写法
     static void sort2(int[] data) {
+        if (data == null) {
+            return;
+        }
         for (int i = 1; i < data.length; i++) {
             int temp = data[i];
 

@@ -14,6 +14,9 @@ public class BubbleSort {
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度 最坏时间复杂度 均是O(n^2)
     static void sort1(int[] data) {
+        if (data == null) {
+            return;
+        }
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - 1; j++) {
                 if (data[j] > data[j + 1]) {
@@ -30,6 +33,9 @@ public class BubbleSort {
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度 最坏时间复杂度 均是O(n^2)
     static void sort2(int[] data) {
+        if (data == null) {
+            return;
+        }
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - i - 1; j++) {
                 if (data[j] > data[j + 1]) {
@@ -45,6 +51,9 @@ public class BubbleSort {
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度O(n) 最坏时间复杂度O(n^2)
     static void sort3(int[] data) {
+        if (data == null) {
+            return;
+        }
         int pos = data.length - 1; // 记录上一次有效的交换位置
         for (int i = 0; i < data.length; i++) {
             boolean sorted = true; // 已经有序了

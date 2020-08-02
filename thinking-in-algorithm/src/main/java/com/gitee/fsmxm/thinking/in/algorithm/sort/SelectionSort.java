@@ -13,6 +13,9 @@ public class SelectionSort {
     // 时间复杂度O(n^2) 空间复杂度O(1)
     // 最好时间复杂度 最坏时间复杂度 均是O(n^2)
     static void sort(int[] data) {
+        if (data == null) {
+            return;
+        }
         for (int i = 0; i < data.length; i++) {
             int pos = i;
 
