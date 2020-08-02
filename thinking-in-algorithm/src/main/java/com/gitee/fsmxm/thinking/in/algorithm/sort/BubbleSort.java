@@ -47,16 +47,20 @@ public class BubbleSort {
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度O(n) 最坏时间复杂度O(n^2)
     static int[] sort3(int[] data) {
+        int pos = data.length - 1; // 记录上一次有效的交换位置
         for (int i = 0; i < data.length; i++) {
             boolean sorted = true; // 已经有序了
-            for (int j = 0; j < data.length - i - 1; j++) {
+            int tempPos = pos;
+            for (int j = 0; j < pos; j++) {
                 if (data[j] > data[j + 1]) {
                     int temp = data[j];
                     data[j] = data[j + 1];
                     data[j + 1] = temp;
                     sorted = false; // 只要一次遍历有数据交换，就不是有序的
+                    tempPos = j; // 记录上一次有效的交换位置，该位置后面的已经是有序的
                 }
             }
+            pos = tempPos;
             if (sorted) {
                 break;
             }
