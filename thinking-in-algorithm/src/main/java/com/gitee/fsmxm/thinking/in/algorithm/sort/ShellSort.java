@@ -12,11 +12,9 @@ import java.util.Arrays;
  */
 public class ShellSort {
 
-    static int[] sort1(int[] data) {
-
+    static void sort1(int[] data) {
         // 初始间隔 按 n / 2
         for (int gap = data.length / 2; gap > 0; gap /= 2) {
-
             for (int i = gap; i < data.length; i++) {
                 int temp = data[i];
                 int j = i;
@@ -27,17 +25,12 @@ public class ShellSort {
 
                 data[j] = temp;
             }
-
         }
-
-        return data;
     }
 
-    static int[] sort2(int[] data) {
-
+    static void sort2(int[] data) {
         // 初始间隔 按 n / 2
         for (int gap = data.length / 2; gap > 0; gap /= 2) {
-
             for (int i = gap; i < data.length; i++) {
                 int temp = data[i];
 
@@ -48,15 +41,13 @@ public class ShellSort {
 
                 data[j + gap] = temp;
             }
-
         }
-
-        return data;
     }
 
     public static void main(String[] args) {
         int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        System.out.println(Arrays.toString(sort2(a)));
+        sort2(a);
+        System.out.println(Arrays.toString(a));
     }
 
 }

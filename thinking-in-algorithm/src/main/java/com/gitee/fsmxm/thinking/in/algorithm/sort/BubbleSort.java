@@ -13,7 +13,7 @@ public class BubbleSort {
     // 最初写法
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度 最坏时间复杂度 均是O(n^2)
-    static int[] sort1(int[] data) {
+    static void sort1(int[] data) {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - 1; j++) {
                 if (data[j] > data[j + 1]) {
@@ -23,14 +23,13 @@ public class BubbleSort {
                 }
             }
         }
-        return data;
     }
 
     // 优化 第二次循环 没必要每次都循环n-1遍
     //     只要比较没有排过序的数据就行了
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度 最坏时间复杂度 均是O(n^2)
-    static int[] sort2(int[] data) {
+    static void sort2(int[] data) {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - i - 1; j++) {
                 if (data[j] > data[j + 1]) {
@@ -40,13 +39,12 @@ public class BubbleSort {
                 }
             }
         }
-        return data;
     }
 
     // 最终优化
     // 时间复杂度O(n^2)  空间复杂度O(1)
     // 最好时间复杂度O(n) 最坏时间复杂度O(n^2)
-    static int[] sort3(int[] data) {
+    static void sort3(int[] data) {
         int pos = data.length - 1; // 记录上一次有效的交换位置
         for (int i = 0; i < data.length; i++) {
             boolean sorted = true; // 已经有序了
@@ -65,12 +63,12 @@ public class BubbleSort {
                 break;
             }
         }
-        return data;
     }
 
     public static void main(String[] args) {
         int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        System.out.println(Arrays.toString(sort3(a)));
+        sort3(a);
+        System.out.println(Arrays.toString(a));
     }
 
 }
