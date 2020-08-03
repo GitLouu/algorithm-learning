@@ -15,13 +15,10 @@ public class _141_LinkedListCycle_DoublePointer {
         public boolean hasCycle(ListNode head) {
             ListNode fast = head;
             ListNode slow = head;
-            int i = 0;
             while (fast != null && fast.next != null) {
                 fast = fast.next.next;
                 slow = slow.next;
-                ++i;
                 if (fast == slow) {
-                    System.out.println(i);
                     return true;
                 }
             }
