@@ -14,7 +14,7 @@ public class _17_14_SmallestKLCCI_Partition {
 
         public int[] smallestK(int[] arr, int k) {
 
-            if (arr == null || arr.length < 5 || k >= arr.length) {
+            if (arr == null || arr.length <= k) {
                 return arr;
             }
 
