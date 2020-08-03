@@ -22,5 +22,9 @@
  * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.MergeSort}
  * <br/>
  *
+ * 快速排序
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.QuickSort}
+ * <br/>
+ *
  */
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
