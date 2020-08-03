@@ -56,32 +56,10 @@ public class _206_ReverseLinkedList_Loop {
         h3.next = h4;
         h4.next = h5;
         System.out.print("输入: ");
-        printAll(h1);
+        h1.printAll();
         System.out.print("输出: ");
-        printAll(new Solution2().reverseList(h1));
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-    static void printAll(ListNode head) {
-        if (head == null) {
-            System.out.println();
-        }
-        StringBuilder builder = new StringBuilder();
-        ListNode h = head;
-        builder.append(h.val).append(" -> ");
-        while (h.next != null) {
-            builder.append(h.next.val).append(" -> ");
-            h = h.next;
-        }
-        System.out.println(builder.append("NULL").toString());
+        ListNode newNode = new Solution2().reverseList(h1);
+        newNode.printAll();
     }
 
 }
