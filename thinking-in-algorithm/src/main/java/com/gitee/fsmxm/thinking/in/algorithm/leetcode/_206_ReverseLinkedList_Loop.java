@@ -8,6 +8,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 public class _206_ReverseLinkedList_Loop {
 
     // 方案1
+    // 时间复杂度O(n) 空间复杂度O(1)
     static class Solution1 {
         public ListNode reverseList(ListNode head) {
             if (head == null) {
