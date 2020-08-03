@@ -13,14 +13,14 @@ public class _141_LinkedListCycle_HashSetCollisionDetection {
     // 时间复杂度O(n) 空间复杂度O(1)
     static class Solution {
         HashSet<ListNode> set = new HashSet<ListNode>();
+
         public boolean hasCycle(ListNode head) {
             ListNode curr = head;
-            set.add(curr);
-            while (curr.next != null) {
-                if (set.contains(curr.next)) {
+            while (curr != null) {
+                if (set.contains(curr)) {
                     return true;
                 }
-                set.add(curr.next);
+                set.add(curr);
                 curr = curr.next;
             }
             return false;
