@@ -1,7 +1,7 @@
 package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 
 /**
- * 141. 环形链表 II
+ * 142. 环形链表 II
  * https://leetcode-cn.com/problems/linked-list-cycle-ii/
  * 难度 中等
  */
