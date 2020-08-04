@@ -9,6 +9,7 @@ import java.util.Arrays;
  */
 public class CountingSort {
 
+    // 如果data数据量太大，就不太适合
     static void sort(int[] data) {
 
         if (data == null || data.length < 2) {

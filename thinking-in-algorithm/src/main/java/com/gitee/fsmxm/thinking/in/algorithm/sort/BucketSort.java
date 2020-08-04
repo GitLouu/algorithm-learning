@@ -14,8 +14,9 @@ public class BucketSort {
         sort(a, 2);
         System.out.println(Arrays.toString(a));
 
+        // 如果最大值和最小值两极分化（差距大），桶大小和桶数量如何确定
+        // 可能开辟的桶数量太大，且数据在桶内分布不均匀
         int[] b = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4, -100, 1000};
-
         sort(b, 1000);
         System.out.println(Arrays.toString(b));
     }
