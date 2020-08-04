@@ -27,6 +27,10 @@ public class CountingSort {
             }
         }
 
+        if (maxVal == minVal) {
+            return;
+        }
+
         // 计数数组
         int[] counter = new int[maxVal - minVal + 1];
         for (int val : data) {

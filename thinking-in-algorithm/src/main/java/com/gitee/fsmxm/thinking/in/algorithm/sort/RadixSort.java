@@ -16,15 +16,39 @@ public class RadixSort {
 
         // 找到最大值
         int maxVal = data[0];
+        int minVal = maxVal;
         for (int val : data) {
             if (maxVal < val) {
                 maxVal = val;
+            } else if (minVal > val) {
+                minVal = val;
             }
         }
 
+        if (maxVal == minVal) {
+            return;
+        }
+
+        if (minVal < 0) {
+            for (int i = 0; i < data.length; i++) {
+                data[i] -= minVal;
+            }
+        }
+
+        int mv = maxVal;
+        if (minVal < 0) {
+            mv -= minVal;
+        }
+
         // 从个位数开始遍历，遍历次数依据最大值 / exp
-        for (int exp = 1; maxVal / exp > 0; exp *= 10) {
+        for (int exp = 1; mv / exp > 0; exp *= 10) {
             countSort(data, exp);
+        }
+
+        if (minVal < 0) {
+            for (int i = 0; i < data.length; i++) {
+                data[i] += minVal;
+            }
         }
     }
 
@@ -53,7 +77,7 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 144, 44, 44, 33};
+        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 144, 44, 44, -33};
         sort(a);
         System.out.println(Arrays.toString(a));
     }
