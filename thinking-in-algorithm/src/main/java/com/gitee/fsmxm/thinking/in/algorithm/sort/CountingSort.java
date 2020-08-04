@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 /**
  * 计数排序
- * T(n) = O(n)
- * S(n) = O(n)
+ * T(n) = O(n+k) k是数据范围
  */
 public class CountingSort {
 

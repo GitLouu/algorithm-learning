@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 /**
  * 基数排序
- * T(n) = O(n)
- * S(n) = O(n)
+ * T(n) = O(dn) d是维度
  */
 public class RadixSort {
 
