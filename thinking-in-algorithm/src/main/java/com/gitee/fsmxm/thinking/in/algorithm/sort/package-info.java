@@ -25,5 +25,7 @@
  * 计数排序
  * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.CountingSort}
  * <br/>
+ * 基数排序
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.RadixSort}
  */
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
