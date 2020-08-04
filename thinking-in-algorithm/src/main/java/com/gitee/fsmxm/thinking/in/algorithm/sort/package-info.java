@@ -22,5 +22,8 @@
  * 桶排序
  * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.BucketSort}
  * <br/>
+ * 计数排序
+ * {@link com.gitee.fsmxm.thinking.in.algorithm.sort.CountingSort}
+ * <br/>
  */
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
