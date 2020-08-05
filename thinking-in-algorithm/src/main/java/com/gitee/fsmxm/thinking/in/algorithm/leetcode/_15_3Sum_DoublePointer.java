@@ -25,6 +25,7 @@ public class _15_3Sum_DoublePointer {
                         continue;
                     }
 
+                    // end 用来快速移动来使三数之和接近0，end越靠近右边，三数之和越>0 (数组已经排序)
                     while (end > front && nums[front] + nums[end] > -nums[i]) {
                         end--;
                     }
