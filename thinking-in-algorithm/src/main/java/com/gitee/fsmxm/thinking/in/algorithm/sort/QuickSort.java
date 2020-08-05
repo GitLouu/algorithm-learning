@@ -28,6 +28,19 @@ public class QuickSort {
     private static int partition(int[] data, int q, int r) {
         int i = q;
         int pivot = data[r];
+        // 三数取中
+        if (r - q >= 2) {
+            int m = (r - q) / 2;
+            if (data[q] > data[m] && data[q] < data[r]) {
+                pivot = data[q];
+                data[q] = data[r];
+                data[r] = pivot;
+            } else if (data[m] > data[q] && data[m] < data[r]) {
+                pivot = data[m];
+                data[m] = data[r];
+                data[r] = pivot;
+            }
+        }
         for (int j = i; j < r; j++) {
             if (data[j] < pivot) {
                 if (j != i) {
@@ -45,8 +58,8 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-//        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        int[] a = {1, 3, 6, 9};
+        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4, -1, 11, 20, -20};
+//        int[] a = {1, 3, 6, 9};
         sort(a);
         System.out.println(Arrays.toString(a));
     }
