@@ -7,7 +7,7 @@ import java.util.Arrays;
  * https://leetcode-cn.com/problems/smallest-k-lcci/
  * 难度 中等
  */
-public class _17_14_SmallestKLCCI_Partition {
+public class _面试题17_14_SmallestKLCCI_Partition {
 
     // 使用快速排序分区的思想
     static class Solution {
