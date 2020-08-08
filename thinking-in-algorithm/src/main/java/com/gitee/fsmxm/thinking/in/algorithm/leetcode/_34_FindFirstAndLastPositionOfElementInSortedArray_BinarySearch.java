@@ -18,30 +18,22 @@ public class _34_FindFirstAndLastPositionOfElementInSortedArray_BinarySearch {
                 return null;
             }
 
-            int posL = search(nums, target, true);
-            int posR = search(nums, target, false);
+            int posL = searchLeft(nums, target);
+            int posR = searchRight(nums, target);
 
             return new int[]{posL, posR};
         }
 
-        int search(int[] nums, int target, boolean isLeft) {
+        int searchRight(int[] nums, int target) {
             int left = 0, right = nums.length - 1, mid;
-            // 找左边界 等于target的第一个值
+            // 找右边界 等于target的最后一个值
             while (left <= right) {
                 mid = left + (right - left) / 2;
                 if (nums[mid] == target) {
-                    // 左边界
-                    if (isLeft) {
-                        if (mid == 0 || nums[mid - 1] != target) {
-                            return mid;
-                        }
-                        right = mid - 1;
-                    } else { // 右边界
-                        if (mid == nums.length - 1 || nums[mid + 1] != target) {
-                            return mid;
-                        }
-                        left = mid + 1;
+                    if (mid == nums.length - 1 || nums[mid + 1] != target) {
+                        return mid;
                     }
+                    left = mid + 1;
                 } else if (nums[mid] > target) {
                     right = mid - 1;
                 } else {
@@ -50,6 +42,26 @@ public class _34_FindFirstAndLastPositionOfElementInSortedArray_BinarySearch {
             }
             return -1;
         }
+
+        int searchLeft(int[] nums, int target) {
+            int left = 0, right = nums.length - 1, mid;
+            // 找左边界 等于target的第一个值
+            while (left <= right) {
+                mid = left + (right - left) / 2;
+                if (nums[mid] == target) {
+                    if (mid == 0 || nums[mid - 1] != target) {
+                        return mid;
+                    }
+                    right = mid - 1;
+                } else if (nums[mid] > target) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            return -1;
+        }
+
     }
 
     public static void main(String[] args) {
