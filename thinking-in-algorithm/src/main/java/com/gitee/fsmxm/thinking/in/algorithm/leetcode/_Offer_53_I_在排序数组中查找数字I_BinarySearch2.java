@@ -8,7 +8,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 public class _Offer_53_I_在排序数组中查找数字I_BinarySearch2 {
 
     // 二分查找边界问题
-    // T(n) = O(logn)*2 = O(n)
+    // T(n) = O(logn)*2 = O(logn)
     static class Solution {
 
         public int search(int[] nums, int target) {
