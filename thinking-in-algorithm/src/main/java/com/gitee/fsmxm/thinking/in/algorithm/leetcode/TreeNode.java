@@ -1,7 +1,7 @@
 package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class TreeNode {
     int val;
@@ -13,27 +13,18 @@ public class TreeNode {
     }
 
     void printAll() {
-        List<TreeNode> list = new ArrayList<>();
-        list.add(this);
-        int count = list.size();
-        int i = 0;
-        while (i < count) {
-            TreeNode treeNode = list.get(i);
-            if (treeNode != null) {
-                if (treeNode.left != null) {
-                    list.add(treeNode.left);
-                    count++;
-                }
-                if (treeNode.right != null) {
-                    list.add(treeNode.right);
-                    count++;
-                }
-            }
-            i++;
-        }
         StringBuilder builder = new StringBuilder();
-        for (TreeNode node : list) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(this);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
             builder.append(node.val).append(", ");
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
         }
         System.out.println(builder.delete(builder.length() - 2, builder.length()).toString());
     }
