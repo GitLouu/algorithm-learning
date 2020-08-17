@@ -16,7 +16,7 @@ public class ArrayTree<T extends Comparable<T>> {
         data = (T[]) new Comparable[size];
     }
 
-    public void add(T val) {
+    public void insert(T val) {
         if (data[1] == null) {
             data[1] = val;
             return;
@@ -100,23 +100,45 @@ public class ArrayTree<T extends Comparable<T>> {
         return 0;
     }
 
+    public int findMax() {
+        int i = 1;
+        int j = i;
+        while (i < data.length && data[i] != null) {
+            j = i;
+            i = i * 2 + 1;
+        }
+        return j;
+    }
+
+    public int findMin() {
+        int i = 1;
+        int j = i;
+        while (i < data.length && data[i] != null) {
+            j = i;
+            i = i * 2;
+        }
+        return j;
+    }
+
     public T getVal(int i) {
         return data[i];
     }
 
     public static void main(String[] args) {
         ArrayTree<Integer> tree = new ArrayTree<>(5);
-        tree.add(5);
-        tree.add(2);
-        tree.add(7);
-        tree.add(6);
-        tree.add(3);
+        tree.insert(5);
+        tree.insert(2);
+        tree.insert(7);
+        tree.insert(6);
+        tree.insert(3);
         tree.printIn();
         tree.printPre();
         tree.printPost();
 
         System.out.println(tree.getVal(tree.find(1)));
         System.out.println(tree.getVal(tree.find(5)));
+        System.out.println(tree.getVal(tree.findMax()));
+        System.out.println(tree.getVal(tree.findMin()));
     }
 
 }
