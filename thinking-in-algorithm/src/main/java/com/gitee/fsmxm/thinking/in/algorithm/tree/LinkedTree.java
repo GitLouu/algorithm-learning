@@ -19,20 +19,22 @@ public class LinkedTree<T extends Comparable<T>> {
             return;
         }
         TNode<T> p = root;
-        while (true) {
+        TNode<T> pp = null;
+        boolean left = true;
+        while (p != null) {
+            pp = p;
             if (val.compareTo(p.val) >= 0) {
-                if (p.right == null) {
-                    p.right = new TNode<>(val);
-                    break;
-                }
                 p = p.right;
+                left = false;
             } else {
-                if (p.left == null) {
-                    p.left = new TNode<>(val);
-                    break;
-                }
                 p = p.left;
+                left = true;
             }
+        }
+        if (left) {
+            pp.left = new TNode<>(val);
+        } else {
+            pp.right = new TNode<>(val);
         }
     }
 
