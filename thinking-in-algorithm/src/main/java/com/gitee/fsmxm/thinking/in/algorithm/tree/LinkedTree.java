@@ -91,6 +91,7 @@ public class LinkedTree<T extends Comparable<T>> {
         tree.add(7);
         tree.add(6);
         tree.add(3);
+
         tree.printIn();
         tree.printPre();
         tree.printPost();
