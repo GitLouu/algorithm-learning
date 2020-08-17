@@ -83,6 +83,27 @@ public class ArrayTree<T extends Comparable<T>> {
         builder.append(data[i]).append(", ");
     }
 
+    public int find(T val) {
+        int i = 1;
+        while (i < data.length) {
+            if (data[i] == null) {
+                return 0;
+            }
+            if (val.compareTo(data[i]) > 0) {
+                i = i * 2 + 1;
+            } else if (val.compareTo(data[i]) < 0) {
+                i = i * 2;
+            } else {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public T getVal(int i) {
+        return data[i];
+    }
+
     public static void main(String[] args) {
         ArrayTree<Integer> tree = new ArrayTree<>(5);
         tree.add(5);
@@ -93,6 +114,9 @@ public class ArrayTree<T extends Comparable<T>> {
         tree.printIn();
         tree.printPre();
         tree.printPost();
+
+        System.out.println(tree.getVal(tree.find(1)));
+        System.out.println(tree.getVal(tree.find(5)));
     }
 
 }

@@ -84,6 +84,20 @@ public class LinkedTree<T extends Comparable<T>> {
         builder.append(root.val).append(", ");
     }
 
+    public TNode<T> find(T val) {
+        TNode<T> p = root;
+        while (p != null) {
+            if (val.compareTo(p.val) > 0) {
+                p = p.right;
+            } else if (val.compareTo(p.val) < 0) {
+                p = p.left;
+            } else {
+                return p;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         LinkedTree<Integer> tree = new LinkedTree<>();
         tree.add(5);
@@ -95,6 +109,8 @@ public class LinkedTree<T extends Comparable<T>> {
         tree.printIn();
         tree.printPre();
         tree.printPost();
+        System.out.println(tree.find(6).val);
+        System.out.println(tree.find(1));
     }
 
 }
