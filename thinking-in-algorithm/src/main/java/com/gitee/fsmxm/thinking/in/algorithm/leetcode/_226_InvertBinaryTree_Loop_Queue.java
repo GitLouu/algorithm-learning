@@ -1,7 +1,7 @@
 package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 226. 翻转二叉树
@@ -9,7 +9,7 @@ import java.util.List;
  * 难度 简单
  */
 
-public class _226_InvertBinaryTree_Loop_List {
+public class _226_InvertBinaryTree_Loop_Queue {
 
     static class Solution {
 
@@ -19,23 +19,19 @@ public class _226_InvertBinaryTree_Loop_List {
             if (root == null) {
                 return null;
             }
-            List<TreeNode> list = new ArrayList<>();
-            list.add(root);
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.add(root);
 
-            int count = list.size();
-
-            for (int i = 0; i < count; i++) {
-                TreeNode node = list.get(i);
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
                 TreeNode right = node.right;
                 node.right = node.left;
                 node.left = right;
                 if (node.left != null) {
-                    list.add(node.left);
-                    count++;
+                    queue.add(node.left);
                 }
                 if (node.right != null) {
-                    list.add(node.right);
-                    count++;
+                    queue.add(node.right);
                 }
             }
 
