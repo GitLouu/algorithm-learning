@@ -5,7 +5,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
  * https://leetcode-cn.com/problems/palindromic-substrings/
  * 难度 中等
  */
-public class _647_PalindromicSubstrings_Loop {
+public class _647_PalindromicSubstrings_Loop_Bad {
 
     // T(n) = O(n^3)
     static class Solution {
