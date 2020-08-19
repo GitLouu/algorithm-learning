@@ -8,6 +8,7 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 public class _647_PalindromicSubstrings_Loop_Bad {
 
     // T(n) = O(n^3)
+    // S(n) = O(n)
     static class Solution {
         public int countSubstrings(String s) {
             if (s == null || s.length() < 2) {
@@ -15,7 +16,7 @@ public class _647_PalindromicSubstrings_Loop_Bad {
             }
             int count = 0;
             char[] chars = s.toCharArray();
-            for (int i = 0; i < chars.length; i++) {
+            for (int i = 0; i < s.length(); i++) {
                 count++;
                 for (int j = i + 1; j < chars.length; j++) {
                     if (isPalindromic(chars, i, j)) {
