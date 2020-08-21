@@ -30,7 +30,7 @@ public class HeapSort {
 
     private static void shiftDown(int[] data, int i, int len) {
         int val = data[i];
-        while (true) {
+        while (i < len) {
             int j = i;
             if (2 * i + 1 < len && val < data[2 * i + 1]) {
                 j = 2 * i + 1;
