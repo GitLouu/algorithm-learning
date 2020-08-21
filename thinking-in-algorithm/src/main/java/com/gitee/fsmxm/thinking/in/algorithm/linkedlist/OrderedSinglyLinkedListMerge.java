@@ -9,12 +9,13 @@ import com.gitee.fsmxm.thinking.in.algorithm.SNode;
 public class OrderedSinglyLinkedListMerge {
 
     // O(m+n)
-    public static <T extends Comparable<T>> SNode<T> merge(SNode<T> head1, SNode<T> head2) {
+    public static <T> SNode<T> merge(SNode<T> head1, SNode<T> head2) {
         return mergeSentinel(head1, head2);
     }
 
     // 使用哨兵节点，可简化操作
-    private static <T extends Comparable<T>> SNode<T> mergeSentinel(SNode<T> head1, SNode<T> head2) {
+    @SuppressWarnings("unchecked")
+    private static <T> SNode<T> mergeSentinel(SNode<T> head1, SNode<T> head2) {
         if (head1 == null) {
             return head2;
         }
@@ -28,7 +29,7 @@ public class OrderedSinglyLinkedListMerge {
         SNode<T> nHead = new SNode<T>(null);
         SNode<T> np = nHead;
         while (p1 != null && p2 != null) {
-            if (p1.val.compareTo(p2.val) <= 0) {
+            if (((Comparable<? super T>) p1.val).compareTo(p2.val) <= 0) {
                 np.next = p1;
                 np = np.next;
                 p1 = p1.next;
@@ -49,7 +50,8 @@ public class OrderedSinglyLinkedListMerge {
         return nHead.next;
     }
 
-    private static <T extends Comparable<T>> SNode<T> mergeNormal(SNode<T> head1, SNode<T> head2) {
+    @SuppressWarnings("unchecked")
+    private static <T> SNode<T> mergeNormal(SNode<T> head1, SNode<T> head2) {
         if (head1 == null) {
             return head2;
         }
@@ -63,7 +65,7 @@ public class OrderedSinglyLinkedListMerge {
         SNode<T> nHead = null;
         SNode<T> np = null;
         while (p1 != null && p2 != null) {
-            if (p1.val.compareTo(p2.val) <= 0) {
+            if (((Comparable<? super T>) p1.val).compareTo(p2.val) <= 0) {
                 if (nHead == null) {
                     nHead = p1;
                     np = nHead;
