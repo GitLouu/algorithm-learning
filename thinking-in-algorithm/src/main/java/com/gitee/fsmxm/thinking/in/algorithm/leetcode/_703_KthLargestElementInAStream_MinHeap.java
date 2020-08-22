@@ -2,6 +2,11 @@ package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 
 import java.util.PriorityQueue;
 
+/**
+ * 703. 数据流中的第K大元素
+ * https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/
+ * 难度 简单
+ */
 public class _703_KthLargestElementInAStream_MinHeap {
 
     static class KthLargest {
