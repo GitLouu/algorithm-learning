@@ -17,25 +17,22 @@ public class _290_WordPattern_Loop_Array_Set {
                 return false;
             }
             String[] pt = new String[26];
+            Set<String> set = new HashSet<>();
             for (int i = 0; i < ss.length; i++) {
                 char c = pattern.charAt(i);
                 if (pt[c - 'a'] == null) {
                     pt[c - 'a'] = ss[i];
+                    if (set.contains(ss[i])) {
+                        return false;
+                    }
+                    set.add(ss[i]);
                 } else {
                     if (!pt[c - 'a'].equals(ss[i])) {
                         return false;
                     }
                 }
             }
-            Set<String> set = new HashSet<>();
-            for (String s : pt) {
-                if (s != null) {
-                    if (set.contains(s)) {
-                        return false;
-                    }
-                    set.add(s);
-                }
-            }
+
             return true;
         }
     }
