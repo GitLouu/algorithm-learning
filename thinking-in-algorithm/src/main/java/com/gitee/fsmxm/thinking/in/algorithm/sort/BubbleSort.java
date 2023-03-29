@@ -1,7 +1,5 @@
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
 
-import java.util.Arrays;
-
 /**
  * 冒泡排序
  * n个数字
@@ -67,17 +65,11 @@ public class BubbleSort {
                     tempPos = j; // 记录上一次有效的交换位置，该位置后面的已经是有序的
                 }
             }
-            pos = tempPos;
             if (sorted) {
                 break;
             }
+            pos = tempPos;
         }
-    }
-
-    public static void main(String[] args) {
-        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        sort3(a);
-        System.out.println(Arrays.toString(a));
     }
 
 }
