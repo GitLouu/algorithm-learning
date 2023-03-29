@@ -1,7 +1,5 @@
 package com.gitee.fsmxm.thinking.in.algorithm.leetcode;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 /**
  * 110. 平衡二叉树
  * https://leetcode-cn.com/problems/balanced-binary-tree/
