@@ -1,11 +1,9 @@
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
 
-import java.util.Arrays;
-
 /**
  * 选择排序
  * n个数字
- * 每轮从无序数字中找到最小的，放到前面的有序区末尾
+ * 每轮从无序数字中找到最小的，放到前面的有序区末尾 (就是有序区末尾的数和当前找到的最小的数交换)
  * 循环n次
  */
 public class SelectionSort {
@@ -25,16 +23,14 @@ public class SelectionSort {
                 }
             }
 
+            if (i == pos) {
+                continue;
+            }
+
             int temp = data[i];
             data[i] = data[pos];
             data[pos] = temp;
         }
-    }
-
-    public static void main(String[] args) {
-        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        sort(a);
-        System.out.println(Arrays.toString(a));
     }
 
 }
