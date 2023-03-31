@@ -1,7 +1,5 @@
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
 
-import java.util.Arrays;
-
 /**
  * 希尔排序   插入排序的变化
  * n个数字
@@ -12,48 +10,23 @@ import java.util.Arrays;
  */
 public class ShellSort {
 
-    static void sort1(int[] data) {
+    static void sort(int[] data) {
         if (data == null) {
             return;
         }
         // 初始间隔 按 n / 2
         for (int gap = data.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < data.length; i++) {
-                int temp = data[i];
                 int j = i;
+                int temp = data[j];
 
-                for (; j > gap - 1 && data[j - gap] > temp ; j -= gap) {
+                for (; j > gap - 1 && data[j - gap] > temp; j -= gap) {
                     data[j] = data[j - gap];
                 }
 
                 data[j] = temp;
             }
         }
-    }
-
-    static void sort2(int[] data) {
-        if (data == null) {
-            return;
-        }
-        // 初始间隔 按 n / 2
-        for (int gap = data.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < data.length; i++) {
-                int temp = data[i];
-
-                int j = i - gap;
-                for (; j >= 0 && data[j] > temp ; j -= gap) {
-                    data[j + gap] = data[j];
-                }
-
-                data[j + gap] = temp;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4};
-        sort2(a);
-        System.out.println(Arrays.toString(a));
     }
 
 }
