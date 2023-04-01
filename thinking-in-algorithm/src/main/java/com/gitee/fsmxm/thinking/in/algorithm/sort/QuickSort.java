@@ -1,67 +1,123 @@
 package com.gitee.fsmxm.thinking.in.algorithm.sort;
 
-import java.util.Arrays;
-
 /**
  * 快速排序
+ * 快速排序的核心思想是，选择一个基准元素，
+ * 将序列中所有小于基准元素的元素放在基准元素的左边，
+ * 大于等于基准元素的元素放在基准元素的右边，
+ * 这个过程称为分区（Partition）。
+ * 然后对基准元素左右两个子序列进行递归排序，直到子序列长度为1或0，递归结束。
  */
 public class QuickSort {
 
     // 平均时间复杂度O(nlogn) 空间复杂度O(1)
     // 最坏时间复杂度O(n^2)  比如一个已经有序的数组
-    static void sort(int[] data) {
-        sortInternally(data, 0, data.length - 1);
+    static void sort1(int[] data) {
+        sortInternally1(data, 0, data.length - 1);
     }
 
-    private static void sortInternally(int[] data, int q, int r) {
+    private static void sortInternally1(int[] data, int left, int right) {
 
-        if (q >= r) {
+        if (left >= right) {
             return;
         }
 
-        int p = partition(data, q, r);
+        int partitionIndex = partition1(data, left, right);
 
-        sortInternally(data, q, p - 1);
-        sortInternally(data, p + 1, r);
+        sortInternally1(data, left, partitionIndex - 1);
+        sortInternally1(data, partitionIndex + 1, right);
     }
 
-    private static int partition(int[] data, int q, int r) {
-        int i = q;
-        int pivot = data[r];
-        // 三数取中
-        if (r - q >= 2) {
-            int m = (r - q) / 2;
-            if (data[q] > data[m] && data[q] < data[r]) {
-                pivot = data[q];
-                data[q] = data[r];
-                data[r] = pivot;
-            } else if (data[m] > data[q] && data[m] < data[r]) {
-                pivot = data[m];
-                data[m] = data[r];
-                data[r] = pivot;
+    private static int partition1(int[] data, int left, int right) {
+        int pivot = data[right];
+        int partitionIndex = left;
+        for (int i = left; i < right; i++) {
+            if (data[i] < pivot) {
+                if (i != partitionIndex) {
+                    int t = data[partitionIndex];
+                    data[partitionIndex] = data[i];
+                    data[i] = t;
+                }
+                partitionIndex++;
             }
         }
-        for (int j = i; j < r; j++) {
-            if (data[j] < pivot) {
-                if (j != i) {
-                    int t = data[i];
-                    data[i] = data[j];
-                    data[j] = t;
-                }
+        data[right] = data[partitionIndex];
+        data[partitionIndex] = pivot;
+        return partitionIndex;
+    }
+
+    private static int partitionSwap(int[] data, int left, int right) {
+        int pivot = data[right];
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && data[i] <= pivot) {
                 i++;
             }
+            while (j > i && data[j] >= pivot) {
+                j--;
+            }
+            if (i < j) {
+                int temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
+            }
         }
-        data[r] = data[i];
-        data[i] = pivot;
 
-        return i;
+        data[right] = data[j];
+        data[j] = pivot;
+        return j;
     }
 
-    public static void main(String[] args) {
-        int[] a = {1, 3, 6, 5, 9, 8, 0, 2, 7, 4, -1, 11, 20, -20};
-//        int[] a = {1, 3, 6, 9};
-        sort(a);
-        System.out.println(Arrays.toString(a));
+    static void sort2(int[] data) {
+        sortInternally2(data, 0, data.length - 1);
+    }
+
+    private static void sortInternally2(int[] data, int left, int right) {
+
+        if (left >= right) {
+            return;
+        }
+
+        int partitionIndex = partition2(data, left, right);
+
+        sortInternally2(data, left, partitionIndex - 1);
+        sortInternally2(data, partitionIndex + 1, right);
+    }
+
+    private static int partition2(int[] data, int left, int right) {
+        int partitionIndex = left;
+        // 三数取中
+        int pivot = threeInTheMiddle(data, left, right);
+        for (int j = partitionIndex; j < right; j++) {
+            if (data[j] < pivot) {
+                if (j != partitionIndex) {
+                    int t = data[partitionIndex];
+                    data[partitionIndex] = data[j];
+                    data[j] = t;
+                }
+                partitionIndex++;
+            }
+        }
+        data[right] = data[partitionIndex];
+        data[partitionIndex] = pivot;
+
+        return partitionIndex;
+    }
+
+    private static int threeInTheMiddle(int[] data, int left, int right) {
+        if (right - left >= 2) {
+            int middle = (right - left) / 2;
+            if (data[left] > data[middle] && data[left] < data[right]) {
+                int temp = data[left];
+                data[left] = data[right];
+                data[right] = temp;
+            } else if (data[middle] > data[left] && data[middle] < data[right]) {
+                int temp = data[middle];
+                data[middle] = data[right];
+                data[right] = temp;
+            }
+        }
+        return data[right];
     }
 
 }
